@@ -14,15 +14,11 @@ function MovieDetails(){
             <Link to="/"> HOME </Link>
             <section className="movies">
             {movies.map(movie => {
-                if (movie.id === id)
                 return (
                     <div key={movie.id}>
                         <p>{movie.description}</p>
                     </div>
                 );
-                else (
-                    console.log('no matches dawg')
-                )
             })}
             </section>
         </>

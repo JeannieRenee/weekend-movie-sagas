@@ -20,6 +20,8 @@ function* rootSaga() {
     yield takeEvery('FETCH_MOVIES', fetchAllMovies);
 }
 
+
+// ---------- Component Functions ---------- // 
 function* fetchAllMovies() {
     // get all movies from the DB
     try {
@@ -30,9 +32,24 @@ function* fetchAllMovies() {
     } catch {
         console.log('get all error');
     }    
-}
+};
+// function* fetchMovieDetail(action) {
+//     // console.log(action.payload);
+//     const id = action.payload;
+//     try {
+//         const oneMovie = yield axios.get(`/api/movie/${id}`)//gets one movie's details from "movies" table
+//         const genres = yield axios.get(`/api/genre/${id}`)//gets one movie's genres from junction/genres tables
+//         yield put({ type: 'SET_DETAIL', payload: oneMovie });//sends DB data to reducer 
+//         yield put({ type: 'SET_GENRES', payload: genres });//sends DB data to reducer (via IndexSaga)
 
-// Used to store movies returned from the server
+//     } catch {
+//         console.log('fetchMovieDetail error');
+//     }
+// }
+
+
+// ---------- REDUCERS ---------- // 
+// all movies returned from the server
 const movies = (state = [], action) => {
     switch (action.type) {
         case 'SET_MOVIES':
@@ -41,8 +58,7 @@ const movies = (state = [], action) => {
             return state;
     }
 }
-
-// Used to store the movie genres
+// movie genres returned from the server
 const genres = (state = [], action) => {
     switch (action.type) {
         case 'SET_GENRES':
@@ -51,18 +67,28 @@ const genres = (state = [], action) => {
             return state;
     }
 }
+// movie detail for movie clicked from the server
+const movieDetails = (state = [], action) => {
+    switch (action.type) {
+        case 'SET_DETAIL':
+            return action.payload.data[0];
+        default:
+            return state;
+    }
+}
 
-// Create one store that all components can use
+// ---------- Store ---------- // 
 const storeInstance = createStore(
     combineReducers({
         movies,
         genres,
+        movieDetails
     }),
     // Add sagaMiddleware to our store
     applyMiddleware(sagaMiddleware, logger),
 );
 
-// This allows the watcherSaga to start watching for actions
+// ---------- Runs rootsaga ---------- // 
 sagaMiddleware.run(rootSaga);
 
 ReactDOM.render(

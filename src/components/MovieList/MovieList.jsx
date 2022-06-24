@@ -15,11 +15,9 @@ function MovieList() {
         dispatch({ type: 'FETCH_MOVIES' });
     }, []);
 
-    const handleClick = () => {
-        console.log("You are headed to movie details");
-        history.push('/details/:id');
-      };
-
+    function handleClick(){
+        history.push(`/details/${movie.id}`);
+    }
     return (
         <main>
             <h1>MovieList</h1>
@@ -39,3 +37,5 @@ function MovieList() {
 }
 
 export default MovieList;
+
+// onClick={history.push(`/details/:${movie.id}`)}

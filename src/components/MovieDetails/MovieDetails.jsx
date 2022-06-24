@@ -4,6 +4,7 @@ import { Link, useParams } from 'react-router-dom';
 
 function MovieDetails(){
     const movies = useSelector(store => store.movies);
+
     let  {id}  = useParams();
 
     for(let i = 0; i<movies.length; i++){
@@ -11,7 +12,8 @@ function MovieDetails(){
             id = i
             break
         }
-    }
+    };
+    console.log('genres test', movies)
 
     return(
         <>
@@ -20,7 +22,10 @@ function MovieDetails(){
 
             <section className="movies">
                         <div key={movies[id].id}>
+                            <h3>{movies[id].title}</h3>
                             <p>{movies[id].description}</p>
+                            <h1>Genre</h1>
+                            <p>{movies[id].genres}</p>
                         </div>
             </section>
         </>

@@ -14,9 +14,6 @@ function MovieList() {
         dispatch({ type: 'FETCH_MOVIES' });
     }, []);
 
-    function handleClick(){
-        history.push(`/details/${movie.id}`);
-    }
     return (
         <main>
             <h1>MovieList</h1>

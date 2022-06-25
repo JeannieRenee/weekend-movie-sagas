@@ -9,6 +9,7 @@ html {
 
 .App-title {
   font-size: 1.5em;
+  background-image: url('public/images/blackbg.png');
 }
 
 .flex-container {

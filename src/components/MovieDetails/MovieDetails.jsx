@@ -44,8 +44,6 @@ function MovieDetails(){
 
     return(
         <>
-        <h1>MovieDetails</h1>
-        <br/>
         {first && 
             <ButtonGroup variant="text">
                 <Button onClick={homePage}>Home</Button>
@@ -55,6 +53,7 @@ function MovieDetails(){
         {middle && 
             <ButtonGroup variant="text">
                 <Button onClick={prevPage}>Previous</Button>
+                <Button onClick={homePage}>Home</Button>
                 <Button onClick={nextPage}>Next</Button>
             </ButtonGroup> 
         }
@@ -90,6 +89,17 @@ function MovieDetails(){
                 maxHeight: 600, 
                 minHeight: 600 
             }}>
+            <CardMedia
+                component="img"
+                image= "images/backcover.png"
+                alt= {movies[id].title}
+                sx={{ 
+                    maxWidth: 400, 
+                    minWidth: 400,  
+                    maxHeight: 600, 
+                    minHeight: 600 
+                }}
+            /> 
                 <Typography 
                     variant="h4"
                     align='left'

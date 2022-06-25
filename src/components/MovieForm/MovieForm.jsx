@@ -5,13 +5,46 @@ import * as React from 'react';
 import Button from '@mui/material/Button';
 import MenuItem from '@mui/material/MenuItem';
 import Select from '@mui/material/Select';
+import OutlinedInput from '@mui/material/OutlinedInput';
+import InputLabel from '@mui/material/InputLabel';
+import FormControl from '@mui/material/FormControl';
+import Chip from '@mui/material/Chip';
+
 
 function MovieForm() {
+    const [movieGenre, setMovieGenre] = useState([]);
 
+    let genres= [
+	'Action',
+	'Animated',
+	'Biographical',
+	'Comedy',
+	'Thriller',
+	'Drama',
+	'Epic',
+	'Fantasy',
+	'Horror',
+	'Romantic',
+	'Science Fiction',
+	'Cyber-Punk',
+	'Foreign',
+    ]
 
+    const handleChange = (event) => {
+        console.log('in handle change')
+        const {
+            target: { value },
+          } = event;
+          setMovieGenre(value)
+          console.log("movieGenre", movieGenre)
+    };
 
+    const handleSubmit = (event) => {
+        console.log('in submit ')
+    };
 
     return(
+        <>
         <Box
         component="form"
         sx={{
@@ -28,40 +61,48 @@ function MovieForm() {
             label="Poster URL"
 
             />
-            <Select
-                label="Genre"
+           <Select
+                labelId="demo-multiple-chip-label"
+                id="demo-multiple-chip"
+                multiple
+                value={movieGenre}
+                onChange={handleChange}
+                input={<OutlinedInput id="select-multiple-chip" label="Chip" />}
+                renderValue={(selected) => (
+                    <Box sx={{ display: 'flex', flexWrap: 'wrap', gap: 0.5 }}>
+                    {selected.map((value) => (
+                        <Chip key={value} label={value} />
+                    ))}
+                    </Box>
+                )}
             >
-                <MenuItem value="Action">Action</MenuItem>
-                <MenuItem value="Animated">Animated</MenuItem>
-                <MenuItem value="Biographical">Biographical</MenuItem>
-                <MenuItem value="Comedy">Comedy</MenuItem>
-                <MenuItem value="Cyber-Punk">Cyber-Punk</MenuItem>
-                <MenuItem value="Drama">Drama</MenuItem>
-                <MenuItem value="Epic">Epic</MenuItem>
-                <MenuItem value="Fantasy">Fantasy</MenuItem>
-                <MenuItem value="Foreign">Foreign</MenuItem>
-                <MenuItem value="Horror">Horror</MenuItem>
-                <MenuItem value="Thriller">Thriller</MenuItem>
-                <MenuItem value="Romantic">Romantic</MenuItem>
-                <MenuItem value="Science-Fiction">Science-Fiction</MenuItem>
+            {genres.map((genre) => (
+                <MenuItem
+                    key={genre}
+                    value={genre}
+                    >
+                    {genre}
+                </MenuItem>
+            ))}
             </Select>
             <br/>
             <TextField 
-            label="Synopsis"
-            
+                label="Synopsis"
             />
-            
             <br/>
             <Button
                 id= "submitButton"
                 type="submit"
                 variant="contained"
                 size="medium"
+                onClick={handleSubmit}
             > 
                 Add Movie
             </Button>
         </Box>
+        </>
     )
 }
 
 export default MovieForm;
+

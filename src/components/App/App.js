@@ -9,7 +9,10 @@ import MovieForm from '../MovieForm/MovieForm'
 function App() {
   return (
     <div className="App">
-        <h1>some sort of placeholder</h1>
+        <h1>Redux-Sagas</h1>
+        <h1> -or- </h1>
+        <h1>Cinematic Sagas</h1>
+
       <Router>        
         <Route path="/" exact>
           <MovieList />

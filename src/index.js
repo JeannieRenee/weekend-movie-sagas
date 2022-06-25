@@ -18,6 +18,8 @@ const sagaMiddleware = createSagaMiddleware();
 // Create the rootSaga generator function
 function* rootSaga() {
     yield takeEvery('FETCH_MOVIES', fetchAllMovies);
+    yield takeEvery('POST_MOVIE', postMovie);
+
 };
 
 // ---------- Component Functions ---------- // 
@@ -26,6 +28,16 @@ function* fetchAllMovies() {
     try {
         const movies = yield axios.get('/api/movie');
         console.log('get all:', movies.data);
+        yield put({ type: 'SET_MOVIES', payload: movies.data });
+
+    } catch {
+        console.log('get all error');
+    }    
+};
+function* postMovie() {
+    try {
+        const movies = yield axios.post('/api/movie');
+        console.log('post all:', movies.data);
         yield put({ type: 'SET_MOVIES', payload: movies.data });
 
     } catch {

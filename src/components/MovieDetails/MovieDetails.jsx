@@ -5,7 +5,6 @@ import {useHistory} from 'react-router-dom';
 
 import Card from '@mui/material/Card';
 import CardMedia from '@mui/material/CardMedia';
-import ButtonGroup from '@mui/material/ButtonGroup';
 import Button from '@mui/material/Button';
 
 import ChevronRightIcon from '@mui/icons-material/ChevronRight';

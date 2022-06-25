@@ -2,8 +2,11 @@ import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import './MovieList.css'
 import MovieCard from '../MovieCard/MovieCard';
+import Button from '@mui/material/Button';
+import {useHistory} from 'react-router-dom';
 
 function MovieList() {
+    const history = useHistory()
     const dispatch = useDispatch();
     const movies = useSelector(store => store.movies);
 
@@ -11,7 +14,15 @@ function MovieList() {
         dispatch({ type: 'FETCH_MOVIES' });
     }, []);
 
+    function addMovie() {
+        history.push(`/add`);
+    }
+
     return (
+        <>
+        <div>
+        <Button onClick={addMovie} sx={{color: 'red'}}>Add Movie</Button>
+        </div>
         <main>
             <section className="flex-container">
                 {movies.map(movie => {
@@ -21,7 +32,8 @@ function MovieList() {
                 })}
             </section>
         </main>
-
+        
+        </>
     );
 }
 

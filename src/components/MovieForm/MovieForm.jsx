@@ -28,10 +28,6 @@ function MovieForm() {
             label="Poster URL"
 
             />
-            <TextField 
-            label="Synopsis"
-
-            />
             <Select
                 label="Genre"
             >
@@ -50,11 +46,17 @@ function MovieForm() {
                 <MenuItem value="Science-Fiction">Science-Fiction</MenuItem>
             </Select>
             <br/>
+            <TextField 
+            label="Synopsis"
+            
+            />
+            
+            <br/>
             <Button
                 id= "submitButton"
                 type="submit"
                 variant="contained"
-                size="large"
+                size="medium"
             > 
                 Add Movie
             </Button>

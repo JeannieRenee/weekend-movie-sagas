@@ -8,10 +8,10 @@ import MovieForm from '../MovieForm/MovieForm'
 
 function App() {
   return (
-    <div className="App">
-        <h1>Redux-Sagas</h1>
-        <h1> -or- </h1>
-        <h1>Cinematic Sagas</h1>
+  <div className="App">
+      <div className="AppHeader">
+        <h1>Sagas</h1>
+      </div>
 
       <Router>        
         <Route path="/" exact>

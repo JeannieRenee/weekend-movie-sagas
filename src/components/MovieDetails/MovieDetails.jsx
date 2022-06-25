@@ -5,9 +5,10 @@ import {useHistory} from 'react-router-dom';
 
 import Card from '@mui/material/Card';
 import CardMedia from '@mui/material/CardMedia';
-import Button from '@mui/material/Button';
 import ButtonGroup from '@mui/material/ButtonGroup';
-
+import ChevronRightIcon from '@mui/icons-material/ChevronRight';
+import ChevronLeftIcon from '@mui/icons-material/ChevronLeft';
+import IconButton from '@mui/material/IconButton';
 
 
 
@@ -45,26 +46,6 @@ function MovieDetails(){
 
     return(
         <>
-        {first && 
-            <ButtonGroup variant="text">
-                <Button onClick={homePage}>Home</Button>
-                <Button onClick={nextPage}>Next</Button>
-            </ButtonGroup> 
-        }
-        {middle && 
-            <ButtonGroup variant="text">
-                <Button onClick={prevPage}>Previous</Button>
-                <Button onClick={homePage}>Home</Button>
-                <Button onClick={nextPage}>Next</Button>
-            </ButtonGroup> 
-        }
-        {last && 
-            <ButtonGroup variant="text">
-                <Button onClick={prevPage}>Previous</Button>
-                <Button onClick={homePage}>Home</Button>
-            </ButtonGroup>         
-        }
-
         <section className="flex-container-2">
             <Card sx={{ 
                 maxWidth: 400, 
@@ -103,7 +84,7 @@ function MovieDetails(){
                             minHeight: 600 
                         }}
                     /> 
-                        <div 
+                        <div className='detailsTitle'
                             style={{
                                 position: 'absolute', 
                                 color: 'white', 
@@ -114,21 +95,22 @@ function MovieDetails(){
                         >
                             {movies[id].title}
                         </div>
-                        <div 
+                        <div className='detailsGenres'
                             style={{
                                 position: 'absolute', 
                                 color: 'white', 
-                                top: 75, 
+                                top: 110, 
                                 left: '50%', 
-                                transform: 'translateX(-50%)'
+                                transform: 'translateX(-50%)',
                             }} 
                         >
-                            {movies[id].genres}</div>
-                            <div 
+                            {movies[id].genres}
+                        </div>
+                        <div className='detailsDesc'
                             style={{
                                 position: 'absolute', 
                                 color: 'white', 
-                                top:125, 
+                                top:140, 
                                 left: '50%', 
                                 transform: 'translateX(-50%)'
                             }} 
@@ -137,33 +119,29 @@ function MovieDetails(){
                         </div>
                 </div>
                 </Card>
-            </section>    
+            </section>  
+                    {first && 
+            <ButtonGroup variant="text">
+                <IconButton onClick={homePage}>Home</IconButton>
+                <IconButton onClick={nextPage}><ChevronRightIcon/></IconButton>
+            </ButtonGroup> 
+        }
+        {middle && 
+            <ButtonGroup variant="text">
+                <IconButton onClick={prevPage}><ChevronLeftIcon/></IconButton>
+                <IconButton onClick={homePage}>Home</IconButton>
+                <IconButton onClick={nextPage}><ChevronRightIcon/></IconButton>
+            </ButtonGroup> 
+        }
+        {last && 
+            <ButtonGroup variant="text">
+                <IconButton onClick={prevPage}><ChevronLeftIcon/></IconButton>
+                <IconButton onClick={homePage}>Home</IconButton>
+            </ButtonGroup>         
+        }  
         </>    
     )
 };
 
 export default MovieDetails
 
-{/* <Typography 
-                    variant="h4"
-                    align='left'
-                    className='titleText'
-                >
-                {movies[id].title}
-                </Typography>
-
-                <Typography 
-                    variant="h6"
-                    align='left'
-                    className='genreText'
-                >
-                {movies[id].genres}
-                </Typography>
-
-                <Typography 
-                    variant="body1"
-                    align='left'
-                    className='descText'
-                >
-                {movies[id].description}
-                </Typography> */}

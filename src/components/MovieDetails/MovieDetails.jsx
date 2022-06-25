@@ -6,6 +6,8 @@ import {useHistory} from 'react-router-dom';
 import Card from '@mui/material/Card';
 import CardMedia from '@mui/material/CardMedia';
 import ButtonGroup from '@mui/material/ButtonGroup';
+import Button from '@mui/material/Button';
+
 import ChevronRightIcon from '@mui/icons-material/ChevronRight';
 import ChevronLeftIcon from '@mui/icons-material/ChevronLeft';
 import IconButton from '@mui/material/IconButton';
@@ -46,6 +48,34 @@ function MovieDetails(){
 
     return(
         <>
+        {first && 
+        <div className='buttons'
+            style={{
+            position: 'sticky'}}
+        >
+            <Button onClick={homePage} sx={{color: 'red'}}>Home</Button>
+            <IconButton onClick={nextPage}><ChevronRightIcon style={{ color: "red" }}/></IconButton>
+        </div>
+        }
+        {middle && 
+        <div className='buttons'
+        style={{
+        position: 'sticky'}}
+        >                
+            <IconButton onClick={prevPage}><ChevronLeftIcon style={{ color: "red" }}/></IconButton>
+            <Button onClick={homePage} sx={{color: 'red'}}>Home</Button>
+            <IconButton onClick={nextPage}><ChevronRightIcon style={{ color: "red" }}/></IconButton>
+        </div>
+        }
+        {last && 
+        <div className='buttons'
+            style={{
+            position: 'sticky'}}
+        >
+                <IconButton onClick={prevPage}><ChevronLeftIcon style={{ color: "red" }}/></IconButton>
+                <Button onClick={homePage} sx={{color: 'red'}}>Home</Button>
+        </div>
+        }  
         <section className="flex-container-2">
             <Card sx={{ 
                 maxWidth: 400, 
@@ -120,25 +150,7 @@ function MovieDetails(){
                 </div>
                 </Card>
             </section>  
-                    {first && 
-            <ButtonGroup variant="text">
-                <IconButton onClick={homePage}>Home</IconButton>
-                <IconButton onClick={nextPage}><ChevronRightIcon/></IconButton>
-            </ButtonGroup> 
-        }
-        {middle && 
-            <ButtonGroup variant="text">
-                <IconButton onClick={prevPage}><ChevronLeftIcon/></IconButton>
-                <IconButton onClick={homePage}>Home</IconButton>
-                <IconButton onClick={nextPage}><ChevronRightIcon/></IconButton>
-            </ButtonGroup> 
-        }
-        {last && 
-            <ButtonGroup variant="text">
-                <IconButton onClick={prevPage}><ChevronLeftIcon/></IconButton>
-                <IconButton onClick={homePage}>Home</IconButton>
-            </ButtonGroup>         
-        }  
+                   
         </>    
     )
 };

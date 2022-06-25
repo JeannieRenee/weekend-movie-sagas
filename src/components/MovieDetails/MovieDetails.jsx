@@ -3,12 +3,12 @@ import { useSelector } from 'react-redux';
 import { useParams } from 'react-router-dom';
 import {useHistory} from 'react-router-dom';
 
-
 import Card from '@mui/material/Card';
 import CardMedia from '@mui/material/CardMedia';
-import Typography from '@mui/material/Typography';
 import Button from '@mui/material/Button';
 import ButtonGroup from '@mui/material/ButtonGroup';
+
+
 
 
 function MovieDetails(){
@@ -41,6 +41,7 @@ function MovieDetails(){
     const first=id === 0; 
     const middle=id > 0 && id < movies.length-1;
     const last=id === movies.length-1; 
+
 
     return(
         <>
@@ -83,24 +84,67 @@ function MovieDetails(){
                 }}
             /> 
             </Card>
+
             <Card sx={{ 
                 maxWidth: 400, 
                 minWidth: 400,  
                 maxHeight: 600, 
                 minHeight: 600 
             }}>
-            <CardMedia
-                component="img"
-                image= "images/backcover.png"
-                alt= {movies[id].title}
-                sx={{ 
-                    maxWidth: 400, 
-                    minWidth: 400,  
-                    maxHeight: 600, 
-                    minHeight: 600 
-                }}
-            /> 
-                <Typography 
+                <div style={{position: 'relative'}} >
+                    <CardMedia
+                        component="img"
+                        image= "images/backcover.png"
+                        alt= {movies[id].title}
+                        sx={{ 
+                            maxWidth: 400, 
+                            minWidth: 400,  
+                            maxHeight: 600, 
+                            minHeight: 600 
+                        }}
+                    /> 
+                        <div 
+                            style={{
+                                position: 'absolute', 
+                                color: 'white', 
+                                top: 50, 
+                                left: '50%', 
+                                transform: 'translateX(-50%)'
+                            }} 
+                        >
+                            {movies[id].title}
+                        </div>
+                        <div 
+                            style={{
+                                position: 'absolute', 
+                                color: 'white', 
+                                top: 75, 
+                                left: '50%', 
+                                transform: 'translateX(-50%)'
+                            }} 
+                        >
+                            {movies[id].genres}</div>
+                            <div 
+                            style={{
+                                position: 'absolute', 
+                                color: 'white', 
+                                top:125, 
+                                left: '50%', 
+                                transform: 'translateX(-50%)'
+                            }} 
+                        >
+                            {movies[id].description}
+                        </div>
+                </div>
+                </Card>
+            </section>    
+        </>    
+    )
+};
+
+export default MovieDetails
+
+{/* <Typography 
                     variant="h4"
                     align='left'
                     className='titleText'
@@ -122,12 +166,4 @@ function MovieDetails(){
                     className='descText'
                 >
                 {movies[id].description}
-                </Typography>
-            </Card>
-            </section>    
-        </>    
-    )
-};
-
-export default MovieDetails
-
+                </Typography> */}

@@ -31,6 +31,7 @@ VALUES
 ('Climax', 'images/climax.png', 'When members of a dance troupe are lured to an empty school, drug-laced sangria causes their jubilant rehearsal to descend into a dark and explosive nightmare as they try to survive the night -- and find out who`s responsible -- before it`s too late.'),
 ('Fargo', 'images/fargo.png', '"Fargo" is a reality-based crime drama set in Minnesota in 1987. Jerry Lundegaard (William H. Macy) is a car salesman in Minneapolis who has gotten himself into debt and is so desperate for money that he hires two thugs (Steve Buscemi), (Peter Stormare) to kidnap his own wife. Jerry will collect the ransom from her wealthy father (Harve Presnell), paying the thugs a small portion and keeping the rest to satisfy his debts. The scheme collapses when the thugs shoot a state trooper.'),
 ('Forrest Gump', 'images/forrestgump.png', 'Slow-witted Forrest Gump (Tom Hanks) has never thought of himself as disadvantaged, and thanks to his supportive mother (Sally Field), he leads anything but a restricted life. Whether dominating on the gridiron as a college football star, fighting in Vietnam or captaining a shrimp boat, Forrest inspires people with his childlike optimism. But one person Forrest cares about most may be the most difficult to save -- his childhood love, the sweet but troubled Jenny (Robin Wright).'),
+('Funny Games', 'images/funny.png', 'An idyllic lakeside vacation home is terrorized by Paul (Arno Frisch) and Peter (Frank Giering), a pair of deeply disturbed young men. When the fearful Anna (Susanne Lothar) is home alone, the two men drop by for a visit that quickly turns violent and terrifying. Husband Georg (Ulrich Mühe) comes to her rescue, but Paul and Peter take the family hostage and subject them to nightmarish abuse and humiliation. From time to time, Paul talks to the film`s audience, making it complicit in the horror.'),
 ('Grave of Fireflies', 'images/graveoffireflies.png', 'A devastating meditation on the human cost of war, this animated tale follows Seita (Tsutomu Tatsumi), a teenager charged with the care of his younger sister, Setsuko (Ayano Shiraishi), after an American firebombing during World War II separates the two children from their parents. Their tale of survival is as heartbreaking as it is true to life. The siblings rely completely on each other and struggle against all odds to stay together and stay alive.'),
 ('Groundhog Day', 'images/groundhog.png', 'A cynical TV weatherman finds himself reliving the same day over and over again when he goes on location to the small town of Punxsutawney to film a report about their annual Groundhog Day. His predicament drives him to distraction, until he sees a way of turning the situation to his advantage.'),
 ('Hackers', 'images/hackers.png', 'A teenage hacker finds himself framed for the theft of millions of dollars from a major corporation. Master hacker Dade Murphy, aka Zero Cool, aka Crash Override, has been banned from touching a keyboard for seven years after crashing over 1,500 Wall Street computers at the age of 11. Now keen to get back in front of a monitor, he finds himself in more trouble than ever.'),
@@ -46,19 +47,19 @@ VALUES
 -- starter genres
 INSERT INTO "genres" ("name")
 VALUES 
-('Action'),         --1
-('Animated'),         --2
-('Biographical'),     --3
-('Comedy'),            --4
-('Thriller'),         --5
-('Drama'),            --6
-('Epic'),             --7
-('Fantasy'),         --8
-('Horror'),         --9
-('Romantic'),         --10
-('Science Fiction'),  --11
-('Cyber-Punk'),      --12
-('Foreign');        --13
+('Action '),         --1
+('Animated '),         --2
+('Biographical '),     --3
+('Comedy '),            --4
+('Thriller '),         --5
+('Drama '),            --6
+('Epic '),             --7
+('Fantasy '),         --8
+('Horror '),         --9
+('Romantic '),         --10
+('Science Fiction '),  --11
+('Cyber-Punk '),      --12
+('Foreign ');        --13
 
 -- starter movies and genres data
 INSERT INTO "movies_genres" ("movie_id", "genre_id")
@@ -69,14 +70,15 @@ VALUES
 (4,5), (4,13),             -- climax
 (5,5),                    -- fargo 
 (6,10), (6,6),                  -- gump
-(7,2),(7,6),              -- grave
-(8,4),                    -- grou dgoh
-(9,1),                    -- hackers
-(10,10), (10,6),                  -- lost in Wars
-(11,6), (11, 7),           -- magnolia
-(12,6),           -- melancholia Net
-(13,6), (13,10),  -- romeo
-(14,13), (14,6),   -- santa 
-(15,9),   -- silence 
-(16,13), (16,5), (16,6),   -- suspiriea 
-(17,4), (17,6);   -- truman 
+(7,13), (7,9),       -- funnygames
+(8,2),(8,6),              -- grave
+(9,4),                    -- grou dgoh
+(10,1),                    -- hackers
+(11,10), (11,6),                 -- lost in Wars
+(12,6), (12, 7),           -- magnolia
+(13,6),           -- melancholia Net
+(14,6), (14,10),  -- romeo
+(15,13), (15,6),   -- santa 
+(16,9),   -- silence 
+(17,13), (17,5), (17,6),   -- suspiriea 
+(18,4), (18,6);   -- truman 

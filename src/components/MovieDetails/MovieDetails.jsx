@@ -2,21 +2,19 @@ import React from 'react';
 import { useSelector } from 'react-redux';
 import { useParams } from 'react-router-dom';
 import {useHistory} from 'react-router-dom';
-
+// mui imports
 import Card from '@mui/material/Card';
 import CardMedia from '@mui/material/CardMedia';
 import Button from '@mui/material/Button';
-
+// mui icons
 import ChevronRightIcon from '@mui/icons-material/ChevronRight';
 import ChevronLeftIcon from '@mui/icons-material/ChevronLeft';
 import IconButton from '@mui/material/IconButton';
 
-
-
 function MovieDetails(){
     const history = useHistory()
     const movies = useSelector(store => store.movies);
-
+    // grab id from params
     let  {id}  = useParams();
 
     for(let i = 0; i<movies.length; i++){
@@ -25,20 +23,23 @@ function MovieDetails(){
             break
         }
     };
+
     function homePage() {
         history.push(`/`);
-    }
+    };
+
     function prevPage() {
         let prevId = id--
         history.push(`/details/${prevId}`);
-    }
+    };
+
     function nextPage() {
         let nextId = id++
         console.log('nextId', id++)
         if (nextId = id){
             history.push(`/details/${nextId++}`);
         }
-    }
+    };
 
     const first=id === 0; 
     const middle=id > 0 && id < movies.length-1;

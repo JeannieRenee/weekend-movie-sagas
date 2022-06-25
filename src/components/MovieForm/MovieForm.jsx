@@ -6,10 +6,7 @@ import Button from '@mui/material/Button';
 import MenuItem from '@mui/material/MenuItem';
 import Select from '@mui/material/Select';
 import OutlinedInput from '@mui/material/OutlinedInput';
-import InputLabel from '@mui/material/InputLabel';
-import FormControl from '@mui/material/FormControl';
 import Chip from '@mui/material/Chip';
-
 
 function MovieForm() {
     const [movieGenre, setMovieGenre] = useState([]);
@@ -28,7 +25,7 @@ function MovieForm() {
 	'Science Fiction',
 	'Cyber-Punk',
 	'Foreign',
-    ]
+    ];
 
     const handleChange = (event) => {
         console.log('in handle change')
@@ -46,20 +43,18 @@ function MovieForm() {
     return(
         <>
         <Box
-        component="form"
-        sx={{
-            '& > :not(style)': { m: 1, width: '25ch' },
-        }}
-        noValidate
-        autoComplete="off"
+            component="form"
+            sx={{
+                '& > :not(style)': { m: 1, width: '25ch' },
+            }}
+            noValidate
+            autoComplete="off"
         >
             <TextField 
-            label="Title"
-
+                label="Title"
             />
             <TextField 
-            label="Poster URL"
-
+                label="Poster URL"
             />
            <Select
                 labelId="demo-multiple-chip-label"

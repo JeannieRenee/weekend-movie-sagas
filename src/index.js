@@ -19,7 +19,6 @@ const sagaMiddleware = createSagaMiddleware();
 function* rootSaga() {
     yield takeEvery('FETCH_MOVIES', fetchAllMovies);
     yield takeEvery('POST_MOVIE', postMovie);
-
 };
 
 // ---------- Component Functions ---------- // 

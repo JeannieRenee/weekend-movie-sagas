@@ -32,7 +32,6 @@ function MovieList() {
                 })}
             </section>
         </main>
-        
         </>
     );
 }

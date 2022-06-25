@@ -1,7 +1,6 @@
 import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import './MovieList.css'
-import { Link } from 'react-router-dom'; 
 import {useHistory} from 'react-router-dom';
 import MovieCard from '../MovieCard/MovieCard';
 
@@ -17,7 +16,7 @@ function MovieList() {
     return (
         <main>
             <h1>MovieList</h1>
-            <section className="movies">
+            <section className="flex-container">
                 {movies.map(movie => {
                     return (
                         <MovieCard movie={movie}/>
@@ -30,5 +29,3 @@ function MovieList() {
 }
 
 export default MovieList;
-
-// onClick={history.push(`/details/:${movie.id}`)}

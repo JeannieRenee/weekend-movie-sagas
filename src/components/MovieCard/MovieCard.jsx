@@ -1,6 +1,10 @@
 import React, { useEffect } from 'react';
 import { useDispatch } from 'react-redux';
-import {useHistory} from 'react-router-dom'
+import {useHistory} from 'react-router-dom';
+
+import Card from '@mui/material/Card';
+import CardMedia from '@mui/material/CardMedia';
+import { CardActionArea } from '@mui/material';
 
 
 
@@ -16,10 +20,28 @@ function MovieCard({movie}) {
         history.push(`/details/${movie.id}`);
     }
     return (
-       <div key={movie.id} >
-            <h3>{movie.title}</h3>
-            <img src={movie.poster} alt={movie.title} onClick={handleClick}/>
-        </div>
+        <Card sx={{ 
+            maxWidth: 200, 
+            minWidth: 200,  
+            maxHeight: 300, 
+            minHeight: 300 
+        }}>
+        <CardActionArea>
+
+        <CardMedia
+            component="img"
+            image= {movie.poster}
+            alt= {movie.title}
+            onClick={handleClick}
+            sx={{ 
+                maxWidth: 200, 
+                minWidth: 200,  
+                maxHeight: 300, 
+                minHeight:300 
+            }}
+        /> 
+        </CardActionArea>
+    </Card>
     );
 }
 

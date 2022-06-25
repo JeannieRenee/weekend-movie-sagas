@@ -2,6 +2,11 @@ import React from 'react';
 import { useSelector } from 'react-redux';
 import { Link, useParams } from 'react-router-dom';
 
+import Card from '@mui/material/Card';
+import CardMedia from '@mui/material/CardMedia';
+import { CardActionArea } from '@mui/material';
+import Typography from '@mui/material/Typography';
+
 function MovieDetails(){
     const movies = useSelector(store => store.movies);
 
@@ -13,23 +18,63 @@ function MovieDetails(){
             break
         }
     };
-    console.log('genres test', movies)
-
     return(
         <>
-            <h1>MovieDetails</h1>
-            <Link to="/"> HOME </Link>
+        <section className="flex-container-2">
+            <Card sx={{ 
+                maxWidth: 400, 
+                minWidth: 400,  
+                maxHeight: 600, 
+                minHeight: 600  
+            }}>
+            <CardMedia
+                component="img"
+                image= {movies[id].poster}
+                alt= {movies[id].title}
+                sx={{ 
+                    maxWidth: 400, 
+                    minWidth: 400,  
+                    maxHeight: 600, 
+                    minHeight: 600 
+                }}
+            /> 
+            </Card>
+            <Card sx={{ 
+                maxWidth: 400, 
+                minWidth: 400,  
+                maxHeight: 600, 
+                minHeight: 600 
+            }}>
+                <Typography 
+                    variant="h4"
+                    align='left'
+                    className='titleText'
+                >
+                {movies[id].title}
+                </Typography>
 
-            <section className="movies">
-                        <div key={movies[id].id}>
-                            <h3>{movies[id].title}</h3>
-                            <p>{movies[id].description}</p>
-                            <h1>Genre</h1>
-                            <p>{movies[id].genres}</p>
-                        </div>
-            </section>
-        </>
+                <Typography 
+                    variant="h6"
+                    align='left'
+                    className='genreText'
+                >
+                {movies[id].genres}
+                </Typography>
+
+                <Typography 
+                    variant="body1"
+                    align='left'
+                    className='descText'
+                >
+                {movies[id].description}
+                </Typography>
+            </Card>
+            </section>    
+                        <Link to="/"> HOME </Link>
+
+        </>    
     )
 };
 
 export default MovieDetails
+

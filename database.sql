@@ -8,12 +8,10 @@ CREATE TABLE "movies" (
   "description" TEXT NOT NULL
 );
 
-
 CREATE TABLE "genres" (
   "id" SERIAL PRIMARY KEY,
   "name" VARCHAR(80) NOT NULL
 );
-
 
 -- JUNCTION TABLE
 -- Movies can have multiple genres and each genre can be applied to multiple movies
@@ -23,7 +21,6 @@ CREATE TABLE "movies_genres" (
   "movie_id" INT REFERENCES "movies" NOT NULL,
   "genre_id" INT REFERENCES "genres" NOT NULL
 );
-
 
 -- starter movies
 INSERT INTO "movies" ("title", "poster", "description")

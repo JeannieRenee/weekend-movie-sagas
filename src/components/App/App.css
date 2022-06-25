@@ -15,7 +15,7 @@ html {
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
-  justify-content: space-around;
+  justify-content: center;
   gap: 20px;
   margin: 20px;
 }
@@ -45,8 +45,8 @@ html {
 .flex-container-2 {
   display: flex;
   flex-direction: row;
-  justify-content: space-around;
-  gap: 10px;
+  justify-content: center;
+  gap: 20px;
   margin: 20px;
   flex-wrap: nowrap
 }

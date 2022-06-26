@@ -20,9 +20,6 @@ function MovieList() {
 
     return (
         <>
-        <div>
-        <Button onClick={addMovie} sx={{color: 'red'}}>Add Movie</Button>
-        </div>
         <main>
             <section className="flex-container">
                 {movies.map(movie => {

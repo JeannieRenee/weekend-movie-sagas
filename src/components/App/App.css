@@ -1,6 +1,6 @@
-/* html {
+html {
   background-Image: url('../../../public/images/blackbg.png'); 
-} */
+}
 
 .App {
   text-align: center;
@@ -47,5 +47,5 @@
 }
 
 .detailsDesc {
-  font-size: 16px;
+  font-size: 14px;
 }

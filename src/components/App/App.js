@@ -3,10 +3,8 @@ import './App.css';
 // jsx imports
 import MovieList from '../MovieList/MovieList'
 import MovieDetails from '../MovieDetails/MovieDetails'
-import MovieForm from '../MovieForm/MovieForm'
 // router import
 import {HashRouter as Router, Route} from 'react-router-dom';
-
 
 function App() {
   return (
@@ -20,9 +18,6 @@ function App() {
         </Route>
         <Route path="/details/:id" exact>
           <MovieDetails />
-        </Route>
-        <Route path="/add" exact>
-          <MovieForm />
         </Route>
       </Router>
     </div>

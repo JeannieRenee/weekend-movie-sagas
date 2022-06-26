@@ -57,34 +57,24 @@ function MovieDetails(){
         <>
         {/* Conditional Rendering for nav buttons! */}
         {first && 
-        <div className='buttons'
-            style={{
-            // position: 'absolute',
-        }}
-        >
-            <IconButton onClick={homePage}><EjectIcon sx={{color: 'red'}} size="large"/></IconButton>
-            <IconButton onClick={nextPage}><FastForwardIcon style={{ color: "white" }} size="large"/></IconButton>
+        <div className='buttons'>
+            <IconButton onClick={homePage}><EjectIcon sx={{color: 'red'}} fontSize="large"/></IconButton>
+            <IconButton onClick={nextPage}><FastForwardIcon style={{ color: "white" }} fontSize="large"/></IconButton>
         </div>
         }
         {middle && 
-        <div className='buttons'
-        style={{
-        // position: 'absolute'
-        }}
-        >                
-            <IconButton onClick={prevPage}><FastRewindIcon style={{ color: "white" }} size="large"/></IconButton>
-            <IconButton onClick={homePage}><EjectIcon sx={{color: 'red'}} size="large"/></IconButton>
-            <IconButton onClick={nextPage}><FastForwardIcon style={{ color: "white" }} size="large"/></IconButton>
+        <div className='buttons'>
+                        
+            <IconButton onClick={prevPage}><FastRewindIcon style={{ color: "white" }} fontSize="large"/></IconButton>
+            <IconButton onClick={homePage}><EjectIcon sx={{color: 'red'}} fontSize="large"/></IconButton>
+            <IconButton onClick={nextPage}><FastForwardIcon style={{ color: "white" }} fontSize="large"/></IconButton>
         </div>
         }
         {last && 
-        <div className='buttons'
-            style={{
-            // position: 'absolute'
-            }}
-        >
-                <IconButton onClick={prevPage}><FastRewindIcon style={{ color: "white" }} size="large"/></IconButton>
-                <IconButton onClick={homePage}><EjectIcon sx={{color: 'red'}} size="large"/></IconButton>
+        <div className='buttons'>
+        
+            <IconButton onClick={prevPage}><FastRewindIcon style={{ color: "white" }} fontSize="large"/></IconButton>
+            <IconButton onClick={homePage}><EjectIcon sx={{color: 'red'}} fontSize="large"/></IconButton>
         </div>
         }  
         {/* Left Card- Cover */}

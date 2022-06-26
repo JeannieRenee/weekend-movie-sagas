@@ -1,7 +1,6 @@
 import React from 'react';
 import { useSelector } from 'react-redux';
-import { useParams } from 'react-router-dom';
-import {useHistory} from 'react-router-dom';
+import { useParams, useHistory } from 'react-router-dom';
 // mui imports
 import Card from '@mui/material/Card';
 import CardMedia from '@mui/material/CardMedia';
@@ -16,23 +15,26 @@ function MovieDetails(){
     const movies = useSelector(store => store.movies);
     // grab id from params
     let  {id}  = useParams();
-
+    // i think this was a goofy way of mapping thru
+    // the movies, but it worked so is it /really/ goofy? 
     for(let i = 0; i<movies.length; i++){
         if(movies[i].id === Number(id)){
             id = i
             break
         }
     };
-
+    // pushes to home
     function homePage() {
         history.push(`/`);
     };
-
+    // pushes to prev page
     function prevPage() {
         let prevId = id--
         history.push(`/details/${prevId}`);
     };
-
+    // pushes to next page
+    // also coded not so elegant but it does work. 
+    // the issue stems from the [i] vs id. 
     function nextPage() {
         let nextId = id++
         console.log('nextId', id++)
@@ -41,17 +43,23 @@ function MovieDetails(){
         }
     };
 
+    // declaring conditions for conditional rendering
+    /* i wrote this conditional with the intention 
+    of keeping the code scalable as i planned to have 
+    POST route for adding movies, so made sure to not
+    hard code the id of the first and last*/
     const first=id === 0; 
     const middle=id > 0 && id < movies.length-1;
     const last=id === movies.length-1; 
 
-
     return(
         <>
+        {/* Conditional Rendering for nav buttons! */}
         {first && 
         <div className='buttons'
             style={{
-            position: 'sticky'}}
+            // position: 'absolute',
+        }}
         >
             <Button onClick={homePage} sx={{color: 'red'}}>Home</Button>
             <IconButton onClick={nextPage}><ChevronRightIcon style={{ color: "red" }}/></IconButton>
@@ -60,7 +68,8 @@ function MovieDetails(){
         {middle && 
         <div className='buttons'
         style={{
-        position: 'sticky'}}
+        // position: 'absolute'
+        }}
         >                
             <IconButton onClick={prevPage}><ChevronLeftIcon style={{ color: "red" }}/></IconButton>
             <Button onClick={homePage} sx={{color: 'red'}}>Home</Button>
@@ -70,12 +79,14 @@ function MovieDetails(){
         {last && 
         <div className='buttons'
             style={{
-            position: 'sticky'}}
+            // position: 'absolute'
+            }}
         >
                 <IconButton onClick={prevPage}><ChevronLeftIcon style={{ color: "red" }}/></IconButton>
                 <Button onClick={homePage} sx={{color: 'red'}}>Home</Button>
         </div>
         }  
+        {/* Left Card- Cover */}
         <section className="flex-container-2">
             <Card sx={{ 
                 maxWidth: 400, 
@@ -95,7 +106,7 @@ function MovieDetails(){
                 }}
             /> 
             </Card>
-
+        {/* Right Card- Back Cover */}
             <Card sx={{ 
                 maxWidth: 400, 
                 minWidth: 400,  
@@ -114,43 +125,42 @@ function MovieDetails(){
                             minHeight: 600 
                         }}
                     /> 
-                        <div className='detailsTitle'
-                            style={{
-                                position: 'absolute', 
-                                color: 'white', 
-                                top: 50, 
-                                left: '50%', 
-                                transform: 'translateX(-50%)'
-                            }} 
-                        >
-                            {movies[id].title}
-                        </div>
-                        <div className='detailsGenres'
-                            style={{
-                                position: 'absolute', 
-                                color: 'white', 
-                                top: 110, 
-                                left: '50%', 
-                                transform: 'translateX(-50%)',
-                            }} 
-                        >
-                            {movies[id].genres}
-                        </div>
-                        <div className='detailsDesc'
-                            style={{
-                                position: 'absolute', 
-                                color: 'white', 
-                                top:140, 
-                                left: '50%', 
-                                transform: 'translateX(-50%)'
-                            }} 
-                        >
-                            {movies[id].description}
-                        </div>
+                    <div className='detailsTitle'
+                        style={{
+                            position: 'absolute', 
+                            color: 'white', 
+                            top: 60, 
+                            left: '50%', 
+                            transform: 'translateX(-50%)'
+                        }} 
+                    >
+                        {movies[id].title}
+                    </div>
+                    <div className='detailsGenres'
+                        style={{
+                            position: 'absolute', 
+                            color: 'white', 
+                            top: 100, 
+                            left: '50%', 
+                            transform: 'translateX(-50%)',
+                        }} 
+                    >
+                        {movies[id].genres}
+                    </div>
+                    <div className='detailsDesc'
+                        style={{
+                            position: 'absolute', 
+                            color: 'white', 
+                            top:140, 
+                            left: '50%', 
+                            transform: 'translateX(-50%)'
+                        }} 
+                    >
+                        {movies[id].description}
+                    </div>
                 </div>
-                </Card>
-            </section>  
-                   
+            </Card>
+        </section>            
         </>    
     )
 };

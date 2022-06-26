@@ -16,11 +16,13 @@ function MovieCard({movie}) {
         dispatch({ type: 'FETCH_MOVIES' });
     }, []);
 
+    // push to details page on click
     function handleClick(){
         history.push(`/details/${movie.id}`);
     }
-
     return (
+        //Each Movie Poster
+        <div className='cards'>
         <Card sx={{ 
             maxWidth: 200, 
             minWidth: 200,  
@@ -42,6 +44,7 @@ function MovieCard({movie}) {
             /> 
             </CardActionArea>
         </Card>
+        </div>
     );
 }
 

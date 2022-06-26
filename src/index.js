@@ -1,16 +1,14 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import './index.css';
 import App from './components/App/App.js';
 import { createStore, combineReducers, applyMiddleware } from 'redux';
-// Provider allows us to use redux within our react app
 import { Provider } from 'react-redux';
 import logger from 'redux-logger';
+import createSagaMiddleware from 'redux-saga';
 import { takeEvery, put } from 'redux-saga/effects';
 import axios from 'axios';
-
-// bringing redux-saga into our project
-import createSagaMiddleware from 'redux-saga';
+// style sheet
+import './index.css';
 
 // This makes a middleware for us to use.
 const sagaMiddleware = createSagaMiddleware();
@@ -18,7 +16,6 @@ const sagaMiddleware = createSagaMiddleware();
 // Create the rootSaga generator function
 function* rootSaga() {
     yield takeEvery('FETCH_MOVIES', fetchAllMovies);
-    yield takeEvery('POST_MOVIE', postMovie);
 };
 
 // ---------- Component Functions ---------- // 
@@ -27,16 +24,6 @@ function* fetchAllMovies() {
     try {
         const movies = yield axios.get('/api/movie');
         console.log('get all:', movies.data);
-        yield put({ type: 'SET_MOVIES', payload: movies.data });
-
-    } catch {
-        console.log('get all error');
-    }    
-};
-function* postMovie() {
-    try {
-        const movies = yield axios.post('/api/movie');
-        console.log('post all:', movies.data);
         yield put({ type: 'SET_MOVIES', payload: movies.data });
 
     } catch {

@@ -1,16 +1,16 @@
 html {
   background-Image: url('../../../public/images/blackbg.png'); 
+  background-size: cover;
 }
 
 .App {
   text-align: center;
   font-family: Arial, Helvetica, sans-serif;
   align-items: center;
-  margin: 25px;
+  margin: 100px;
 }
 
 .AppHeader {
-  margin-top: 20px;
   font-size: 24px;
   color: rgb(30, 30, 30);
   padding: 5px;

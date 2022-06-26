@@ -6,9 +6,10 @@ import Card from '@mui/material/Card';
 import CardMedia from '@mui/material/CardMedia';
 import Button from '@mui/material/Button';
 // mui icons
-import ChevronRightIcon from '@mui/icons-material/ChevronRight';
-import ChevronLeftIcon from '@mui/icons-material/ChevronLeft';
+import FastRewindIcon from '@mui/icons-material/FastRewind';
+import FastForwardIcon from '@mui/icons-material/FastForward';
 import IconButton from '@mui/material/IconButton';
+import EjectIcon from '@mui/icons-material/Eject';
 
 function MovieDetails(){
     const history = useHistory()
@@ -61,8 +62,8 @@ function MovieDetails(){
             // position: 'absolute',
         }}
         >
-            <Button onClick={homePage} sx={{color: 'red'}}>Home</Button>
-            <IconButton onClick={nextPage}><ChevronRightIcon style={{ color: "red" }}/></IconButton>
+            <IconButton onClick={homePage}><EjectIcon sx={{color: 'red'}} size="large"/></IconButton>
+            <IconButton onClick={nextPage}><FastForwardIcon style={{ color: "white" }} size="large"/></IconButton>
         </div>
         }
         {middle && 
@@ -71,9 +72,9 @@ function MovieDetails(){
         // position: 'absolute'
         }}
         >                
-            <IconButton onClick={prevPage}><ChevronLeftIcon style={{ color: "red" }}/></IconButton>
-            <Button onClick={homePage} sx={{color: 'red'}}>Home</Button>
-            <IconButton onClick={nextPage}><ChevronRightIcon style={{ color: "red" }}/></IconButton>
+            <IconButton onClick={prevPage}><FastRewindIcon style={{ color: "white" }} size="large"/></IconButton>
+            <IconButton onClick={homePage}><EjectIcon sx={{color: 'red'}} size="large"/></IconButton>
+            <IconButton onClick={nextPage}><FastForwardIcon style={{ color: "white" }} size="large"/></IconButton>
         </div>
         }
         {last && 
@@ -82,8 +83,8 @@ function MovieDetails(){
             // position: 'absolute'
             }}
         >
-                <IconButton onClick={prevPage}><ChevronLeftIcon style={{ color: "red" }}/></IconButton>
-                <Button onClick={homePage} sx={{color: 'red'}}>Home</Button>
+                <IconButton onClick={prevPage}><FastRewindIcon style={{ color: "white" }} size="large"/></IconButton>
+                <IconButton onClick={homePage}><EjectIcon sx={{color: 'red'}} size="large"/></IconButton>
         </div>
         }  
         {/* Left Card- Cover */}

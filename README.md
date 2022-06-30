@@ -11,6 +11,8 @@ I, as usual, had too much fun with this project. It was important to me to go wi
 ## Demo
 
 ![Alt Text](sagas.gif)
+</br>
+To see the fully functional site, click [here]().
 
 ## Built With
 

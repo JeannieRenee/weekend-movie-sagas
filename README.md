@@ -4,7 +4,7 @@
 
 _Duration: 16 hours_
 
-I was asked to create a movie management application that renders a movie collection to the webpage after being pulled from a database. A detailed view has been created for each individual movie- including all genres of that particular movie.
+I was asked to create a movie management application that renders a collection to the webpage after being pulled from a database. A detailed view has been created for each individual movie- including all genres of that particular movie.
 
 I, as usual, had too much fun with this project. It was important to me to go with a "dingy movie rental store" vibe, created custom buttons that resemble those on a VCR, and even photoshopped the movie covers to appear distressed. When creating apps its of utmost importance to me to keep the UI intuitive, and I love when webpages resemble real life items. 
 
